@@ -1,3 +1,4 @@
+console.log("starting");
 const https = require("https");
 
 function getIndexPromises(){
