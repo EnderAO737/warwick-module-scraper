@@ -38,18 +38,15 @@ char* makeRequest(char* url){
 	return response.string;
 }
 
-
-
 int main(int argc, char** argv) {
 	char* indexHtml = malloc(1);
 	indexHtml[0] = '\0';
-	for(size_t i = 0; i < 1; i++){
-		char* data = makeRequest("https://google.com");
+	for(size_t i = 0; i < atoi(argv[2]); i++){
+		char* data = makeRequest(strcat(argv[1], argv[2]));
 		char* temp = realloc(indexHtml, strlen(indexHtml) + strlen(data) + 1);
 		indexHtml = temp;
 		strcat(indexHtml, data);
 		free(data);
-
 	}
 	printf("%s", indexHtml);
 	free(indexHtml);
